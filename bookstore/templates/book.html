@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+<img src="{{c.image.url}}" alt="img" height="400px" width="100%">
+</div>
+<div class="container-fluid" style="margin-bottom:100px;">
+    <h2 class="text-center" style="color:red;font-weight:bold;">{{c.name}}</h2>
+    <br>
+    <p style="text-align:justify">{{c.description}}</p></div>
+
+<div class="container-fluid">
+    <div class="row">
+        {%for i in b %}
+        <div class=" col-md-2" style="height:450px;width:270px;">
+            <div class="card" style="background:white;border:1px solid white;">
+                <img src="{{i.image.url}}" class="card-img-top"  alt="..." style="height=130px;width:140px;margin-left:50px;">
+                <div class="card-body" style="color:green;">
+                 <b><p class="card-title text-center" style="text-transform:uppercase;">{{i.name}}</p>
+                    <p class="card-title text-center">Rating:{{i.rating}}</p>
+                    <p class="card-title text-center">Rs.{{i.price}}/-</p></b>
+                    <button style="margin-left:50px;"> <a href="{% url 'store:viewbook' i.slug %}" style="width:auto;color:red;background:black;" class="btn btn-outline-light">DETAILS</a></button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

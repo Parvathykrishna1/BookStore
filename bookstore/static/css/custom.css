@@ -1,0 +1,19 @@
+/*body*/
+body
+{
+background-color:white;
+font-family: 'Roboto Mono', monospace;
+}
+
+.navbar-light .navbar-brand ,.navbar-light .navbar-nav .nav-link{
+    color: white;
+}
+
+.bg-light{
+background-color: Purple!important;
+}
+
+.btn
+{width:200px;}
+
+

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 mt-5">
+        <img src="{{b.image.url}}" height="400px" width="500px"></div>
+        <div class="col-sm-6 mt-5">
+        <h2>{{b.name}}</h2>
+            <h3>{{b.rating}}</h3>
+            <h3 style="text-align:justify">{{b.author}}</h3>
+        <h3>Price:{{b.price}}</h3>
+            {% if b.stock <= 0 %}
+            <h2>Out of Stock</h2>
+            {% else %}
+            <a href="{% url 'cart:add_cart' b.id %}" class="btn btn-primary">ADD TO CART</a>
+        {% endif %}
+        </div></div></div>
+{% endblock %}

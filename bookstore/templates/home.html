@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<h4>{{user.username}}</h4>
+{% else %}
+<h4>visitor</h4>
+{% endif %}
+<img src="{% static 'img/img.png' %}" alt="img" height="800px" width="100%" style="position:relative;">
+<div style="position:absolute;top:150px;left:40px;">
+  <ul style="font-size:30px;font-weight:bold;">
+        {% for i in c %}
+        <li>
+          <button style="padding:4px;margin:5px;border:1px solid white;margin-left:0px;"> <a  style="text-decoration:none;color:purple;background:lavender;"   href="{% url 'store:allbooks' i.slug %}">{{i.name}}</a></button>
+        </li>
+
+
+
+        {% endfor %}
+        </ul>
+</div>
+<div class="container-fluid" style="margin-bottom:100px;">
+    <h2 class="text-center" style="color:red;font-weight:bold;">COLLECTIONS</h2>
+    <br>
+    <p style="text-align:justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div>
+
+
+
+    </div>
+</div>
+{% endblock %}

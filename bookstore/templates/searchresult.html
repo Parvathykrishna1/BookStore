@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <h4 class="text-center">You have searched for {{ query }}</h4>
+</div>
+
+<div class="container">
+    <div class="row">
+        <h6 class="text-center">SEARCH RESULT</h6>
+        {%for i in books %}
+        <div class=" col-md-4" style="height:450px">
+            <div class="card" style="background:#b39ddb">
+                <img src="{{i.image.url}}" class="card-img-top"  alt="..." height="250px">
+                <div class="card-body" style="color:green">
+                 <h5 class="card-title text-center" style="text-transform:uppercase;">{{i.name}}</h5>
+                    <h6 class="card-title text-center" style="text-transform:uppercase;">{{i.price}}</h6>
+                <a href="{% url 'store:viewbook' i.slug %}" class="btn btn-outline-light" style="background:purple;position:relative;left:38%;">DETAILS</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <h5 class="text-center">0 Result Found</h5>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
